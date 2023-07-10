@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PostDetails from "./pages/PostDetails";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blogs/:id" element={<PostDetails />} />
         </Routes>
       </div>
     </Router>
