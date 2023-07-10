@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -17,7 +18,9 @@ const Home = () => {
       {blogs.map((blog) => {
         return (
           <div className="card post-card" key={blog.id}>
-            <h2 className="post-title">{blog.title}</h2>
+            <h2 className="post-title">
+              <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+            </h2>
             <p className="post-body">{blog.username}</p>
             <div class="text-center">
               <p className="post-body card-details">{blog.body}</p>
