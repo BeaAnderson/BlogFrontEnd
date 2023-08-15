@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = (config) => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -22,8 +22,10 @@ const Home = () => {
               <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
             </h2>
             <p className="post-body">{blog.username}</p>
-            <div class="text-center">
-              <p className="post-body card-details">{blog.body}</p>
+            <div>
+              <p className="post-body card-details">
+                {blog.body.substring(0, 10)}...
+              </p>
             </div>
           </div>
         );

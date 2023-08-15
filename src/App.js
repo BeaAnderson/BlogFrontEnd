@@ -5,8 +5,15 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PostDetails from "./pages/PostDetails";
+import LoginPage from "./pages/LoginPage";
+import UserPage from "./pages/UserPage";
 
 function App() {
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
   return (
     <Router>
       <div>
@@ -14,6 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs/:id" element={<PostDetails />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/users" element={<UserPage />} />
         </Routes>
       </div>
     </Router>

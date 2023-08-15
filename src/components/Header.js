@@ -26,8 +26,13 @@ const Header = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Link
+              <a class="nav-link" href="/createblog">
+                Create Blog
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
+                Log In
               </a>
             </li>
             <li class="nav-item dropdown">
