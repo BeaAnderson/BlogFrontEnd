@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useHistory, Link } from "react-router-dom";
 import axios from "axios";
 
-const LoginPage = () => {
+const LoginPage = ({message}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const location = "http://localhost:8088/auth/login";
+  const message1 = useState(message);
 
   const navigate = useNavigate();
 
@@ -33,6 +34,7 @@ const LoginPage = () => {
 
   return (
     <div className="add-post-container">
+      <div>{message1}</div>
       <form className="addUserForm" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Username: </label>
