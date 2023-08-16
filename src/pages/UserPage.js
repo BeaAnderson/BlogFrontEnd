@@ -1,19 +1,29 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useNavigate, useHistory, Link } from "react-router-dom";
 
 const UserPage = () => {
   const [users, setUsers] = useState([]);
   const token = localStorage.getItem("token") 
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchUser = async () => {
       console.log(token)
-      let response = await axios.get("http://localhost:8088/api/v1/users", {
+      try {
+        let response = await axios.get("http://localhost:8088/api/v1/users", {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
       setUsers(response.data);
+    } catch (error) {
+      console.error(error)
+      if (error.response.status === 401){
+        navigate("/login")
+      }
+    }
     };
     fetchUser();
   }, []);

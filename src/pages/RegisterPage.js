@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useHistory, Link } from "react-router-dom";
 import axios from "axios";
 
-const LoginPage = () => {
-  const [username, setUsername] = useState("");
+const RegisterPage = () => {
+    const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const location = "http://localhost:8088/auth/login";
+  const location = "http://localhost:8088/auth/register";
 
   const navigate = useNavigate();
 
-  const LogIn = async (username, password) => {
+  const Register = async (username, password) => {
     try {
       const response = await axios.post(location, {
         username: username,
@@ -28,7 +28,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    LogIn(username, password);
+    Register(username, password);
   };
 
   return (
@@ -60,9 +60,8 @@ const LoginPage = () => {
           Log In
         </button>
       </form>
-      <p>don't have an account click <span><a class="nav-link" href="/register">here</a></span></p>
-    </div>
+      </div>
   );
-};
+}
 
-export default LoginPage;
+export default RegisterPage;

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PostDetails from "./pages/PostDetails";
 import LoginPage from "./pages/LoginPage";
 import UserPage from "./pages/UserPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -23,6 +24,7 @@ function App() {
           <Route path="/blogs/:id" element={<PostDetails />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/users" element={<UserPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </div>
     </Router>
