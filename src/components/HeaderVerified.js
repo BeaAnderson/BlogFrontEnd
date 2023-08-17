@@ -1,7 +1,4 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import HeaderLoggedIn from "./HeaderVerified.js";
-import HeaderLoggedOut from "./HeaderLoggedOut.js";
+import React from "react";
 
 const Header = () => {
   return (
@@ -35,7 +32,7 @@ const Header = () => {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/login">
-                Log In
+                Log Out
               </a>
             </li>
             <li class="nav-item dropdown">

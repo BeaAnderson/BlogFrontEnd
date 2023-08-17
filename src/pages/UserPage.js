@@ -21,7 +21,7 @@ const UserPage = () => {
     } catch (error) {
       console.error(error)
       if (error.response.status === 401){
-        navigate("/login", {state : {message: "Login needed to view this page"}})
+        navigate("/accessdenied")
       }
     }
     };
