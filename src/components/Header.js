@@ -4,11 +4,13 @@ import HeaderLoggedIn from "./HeaderVerified.js";
 import HeaderLoggedOut from "./HeaderLoggedOut.js";
 
 const Header = () => {
+  
+  
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          Navbar
+          Bee's Blogs
         </a>
         <button
           class="navbar-toggler"
