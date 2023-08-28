@@ -14,10 +14,12 @@ const Home = (config) => {
   }, []);
 
   return (
-    <div className="blogs-container">
+    <div className="container-fluid">
+      <h1>Blogs</h1>
       {blogs.map((blog) => {
         return (
-          <div className="card post-card" key={blog.id}>
+          <div className="p-2">
+          <div className="card" key={blog.id}>
             <h2 className="post-title">
               <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
             </h2>
@@ -27,7 +29,7 @@ const Home = (config) => {
                 {blog.body.substring(0, 10)}...
               </p>
             </div>
-          </div>
+          </div></div>
         );
       })}
     </div>
