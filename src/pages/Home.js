@@ -19,17 +19,18 @@ const Home = (config) => {
       {blogs.map((blog) => {
         return (
           <div className="p-2">
-          <div className="card" key={blog.id}>
-            <h2 className="post-title">
-              <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
-            </h2>
-            <p className="post-body">{blog.username}</p>
-            <div>
-              <p className="post-body card-details">
-                {blog.body.substring(0, 10)}...
-              </p>
+            <div className="card" key={blog.id}>
+              <h2 className="post-title">
+                <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+              </h2>
+              <p className="post-body">{blog.username}</p>
+              <div>
+                <p className="post-body card-details">
+                  {blog.body.substring(0, 30)}...
+                </p>
+              </div>
             </div>
-          </div></div>
+          </div>
         );
       })}
     </div>
