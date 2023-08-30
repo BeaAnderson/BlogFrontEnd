@@ -35,6 +35,7 @@ const CreateBlogPage = () => {
     title,
     body
   ) => {
+    console.log(JSON.parse(atob("eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE2OTM0MDE0NTUsInJvbGVzIjoiQURNSU4ifQ")));
     let response = await axios.post("http://localhost:8088/api/v1/blogs", {
       user: { userId: user },
       title: title,
