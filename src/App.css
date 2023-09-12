@@ -1,10 +1,12 @@
-.App {
+h1 {
   text-align: center;
+  color:coral;
+  background-color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  color:#282c34;
 }
 
 @media (prefers-reduced-motion: no-preference) {

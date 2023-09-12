@@ -1,4 +1,3 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import Header from "./components/Header";
@@ -12,6 +11,8 @@ import AccessDenied from "./pages/AccessDenied";
 import CreateBlogPage from "./pages/CreateBlogPage";
 import HeaderLoggedOut from "./components/HeaderLoggedOut";
 import HeaderAuthentication from "./components/HeaderAuth";
+import "./App.css";
+import PostDetailAuthentication from "./components/PostDetailAuth";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -26,7 +27,7 @@ function App() {
         <HeaderAuthentication />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blogs/:id" element={<PostDetails />} />
+          <Route path="/blogs/:id" element={<PostDetailAuthentication />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/users" element={<UserPage />} />
           <Route path="/register" element={<RegisterPage />} />

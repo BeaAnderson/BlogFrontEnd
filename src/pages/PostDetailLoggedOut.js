@@ -3,13 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-function PostDetails(props) {
+function PostDetailsLoggedOut(props) {
   const [blogs, setBlogs] = useState([]);
   const { id } = useParams();
   const [comments, setComments] = useState([]);
   const [body, setBody] = useState("");
-  const token = localStorage.getItem("token");
-  const userObject = JSON.parse(atob(token.split(".")[1]));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,33 +45,6 @@ function PostDetails(props) {
     return <div>waiting</div>;
   }
 
-  const addComment = async (body) => {
-    let response = await axios.post(
-      "http://localhost:8088/api/v1/comments",
-      {
-        body: body,
-        blog: {
-          id: id,
-        },
-        user: {
-          userId: userObject.sub,
-        },
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addComment(body);
-    navigate(`/blogs/${id}`);
-    window.location.reload();
-  };
-
   return (
     <>
       <div className="posts-container card">
@@ -87,20 +58,7 @@ function PostDetails(props) {
       </div>
       <div className="post-card">
         <h2 className="post-title">Comments</h2>
-        <form className="addCommentForm" onSubmit={handleSubmit}>
-          <label>Add a comment:</label>
-          <br></br>
-          <textarea
-            type="text"
-            id="body"
-            value={body}
-            name="commentBody"
-            rows="2"
-            cols="100"
-            onChange={(e) => setBody(e.target.value)}
-          />
-          <input type="submit" value="submit" />
-        </form>
+        <div>log in to post a comment</div>
         <br />
         {displayComments()}
       </div>
@@ -108,4 +66,4 @@ function PostDetails(props) {
   );
 }
 
-export default PostDetails;
+export default PostDetailsLoggedOut;
