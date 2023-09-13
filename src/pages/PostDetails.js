@@ -9,7 +9,7 @@ function PostDetails(props) {
   const [comments, setComments] = useState([]);
   const [body, setBody] = useState("");
   const token = localStorage.getItem("token");
-  const userObject = JSON.parse(atob(token.split(".")[1]));
+  const [userObject, setUserObject] = useState([]) 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function PostDetails(props) {
     if (blogs.comments) {
       return blogs.comments.map((comment, index) => (
         <div key={index}>
-          {comment.username}
+          <span style={{fontWeight:"bold"}}>{comment.username}</span>
           <br></br>
           {comment.body}
         </div>
@@ -48,6 +48,8 @@ function PostDetails(props) {
   }
 
   const addComment = async (body) => {
+    const localUser = JSON.parse(atob(token.split(".")[1]));
+    console.log(localUser)
     let response = await axios.post(
       "http://localhost:8088/api/v1/comments",
       {
@@ -56,7 +58,7 @@ function PostDetails(props) {
           id: id,
         },
         user: {
-          userId: userObject.sub,
+          userId: localUser.sub,
         },
       },
       {
@@ -76,17 +78,18 @@ function PostDetails(props) {
 
   return (
     <>
-      <div className="posts-container card">
+      <div className="container-fluid" style={{marginTop:20, paddingLeft:40, paddingRight:60}}>
         <div className="post-card" key={blogs.id}>
           <h2 className="post-title">{blogs.title}</h2>
           <p>authored by: {blogs.username}</p>
           <div style={{ whiteSpace: "pre-line" }}>
-            <p className="post-body">{blogs.body}</p>
+            <p className="post-body" style={{marginBottom:30}}>{blogs.body}</p>
           </div>
         </div>
       </div>
-      <div className="post-card">
-        <h2 className="post-title">Comments</h2>
+      <div className="container-fluid" style={{paddingLeft:40, paddingRight:60}}>
+        <h3 className="post-title">Comments</h3>
+        <hr></hr>
         <form className="addCommentForm" onSubmit={handleSubmit}>
           <label>Add a comment:</label>
           <br></br>
@@ -102,6 +105,7 @@ function PostDetails(props) {
           <input type="submit" value="submit" />
         </form>
         <br />
+        
         {displayComments()}
       </div>
     </>
