@@ -47,17 +47,18 @@ function PostDetailsLoggedOut(props) {
 
   return (
     <>
-      <div className="posts-container card">
+      <div className="container-fluid" style={{marginTop:20, paddingLeft:40, paddingRight:60}}>
         <div className="post-card" key={blogs.id}>
           <h2 className="post-title">{blogs.title}</h2>
           <p>authored by: {blogs.username}</p>
           <div style={{ whiteSpace: "pre-line" }}>
-            <p className="post-body">{blogs.body}</p>
+            <p className="post-body" style={{marginBottom:30}}>{blogs.body}</p>
           </div>
         </div>
       </div>
-      <div className="post-card">
-        <h2 className="post-title">Comments</h2>
+      <div className="container-fluid" style={{paddingLeft:40, paddingRight:60}}>
+        <h3 className="post-title">Comments</h3>
+        <hr></hr>
         <div>log in to post a comment</div>
         <br />
         {displayComments()}
