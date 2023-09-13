@@ -9,6 +9,8 @@ const CreateBlogPage = () => {
   const [body, setBody] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("token")
+  const toParse = token.split(".")[1]
+  const userID = JSON.parse(atob(toParse)).sub
   const [userLoggedIn, setUserLoggedIn] = useState([]);
 
   useEffect(()=>{
@@ -31,13 +33,13 @@ const CreateBlogPage = () => {
   }, []);
 
   const addBlogs = async(
-    user,
+    userId,
     title,
     body
   ) => {
     
     let response = await axios.post("http://localhost:8088/api/v1/blogs", {
-      user: { userId: user },
+      user: { userId: userId },
       title: title,
       body: body,
     },{
@@ -45,12 +47,13 @@ const CreateBlogPage = () => {
         'Authorization': `Bearer ${token}`
       }
     });
+    console.log(JSON.parse(atob(toParse)))
     setBlogs((blogs) => [response.data, ...blogs]);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addBlogs(user,title,body);
+    addBlogs(userID,title,body);
     navigate("/");
   }
   
