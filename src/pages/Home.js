@@ -52,10 +52,12 @@ const Home = (config) => {
             return (
               <div className="col-4">
                 <div className="card mt-3 h-150" key={blog.id}>
+                <img src={blog.image}></img>
                   <h2 className="post-title">
                     <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
                   </h2>
                   <p className="post-body">{blog.username}</p>
+                  
                   <div>
                     <p className="post-body card-details">
                       {blog.body.substring(0, 30)}...
@@ -78,17 +80,19 @@ const Home = (config) => {
     );
   } else {
     return (
-      <div className="container-fluid">
+      <div className="container">
         <h1>Blogs</h1>
         <div className="row">
           {blogs.map((blog) => {
             return (
               <div className="col-4">
                 <div className="card mt-3 h-150" key={blog.id}>
+                <img src={blog.image}></img>
                   <h2 className="post-title">
                     <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
                   </h2>
                   <p className="post-body">{blog.username}</p>
+                  
                   <div>
                     <p className="post-body card-details">
                       {blog.body.substring(0, 100)}...

@@ -13,6 +13,7 @@ import HeaderLoggedOut from "./components/HeaderLoggedOut";
 import HeaderAuthentication from "./components/HeaderAuth";
 import "./App.css";
 import PostDetailAuthentication from "./components/PostDetailAuth";
+import Footer from "./components/Footer";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className="d-flex flex-column vh-100">
         <HeaderAuthentication />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -34,7 +35,9 @@ function App() {
           <Route path="/accessdenied" element={<AccessDenied />} />
           <Route path="/createblog" element={<CreateBlogPage />} />
         </Routes>
+        <Footer/>
       </div>
+      
     </Router>
   );
 }

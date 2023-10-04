@@ -78,6 +78,9 @@ function PostDetails(props) {
 
   return (
     <>
+      <div className="container">
+        <img src={blogs.image}></img>
+      </div>
       <div className="container-fluid" style={{marginTop:20, paddingLeft:40, paddingRight:60}}>
         <div className="post-card" key={blogs.id}>
           <h2 className="post-title">{blogs.title}</h2>

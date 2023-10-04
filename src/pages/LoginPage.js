@@ -33,7 +33,7 @@ const LoginPage = ({message}) => {
   };
 
   return (
-    <div className="add-post-container">
+    <div className="container">
       <div>{message1}</div>
       <form className="addUserForm" onSubmit={handleSubmit}>
         <div className="form-group">

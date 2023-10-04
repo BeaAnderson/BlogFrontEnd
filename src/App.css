@@ -1,7 +1,14 @@
 h1 {
   text-align: center;
-  color:coral;
-  background-color: black;
+  color:violet;
+}
+
+.post-title {
+  color: violet;
+}
+
+link {
+  color: violet;
 }
 
 a {
